@@ -1,0 +1,248 @@
+-- =============================================================
+-- Copyright Roaming Gamer, LLC. 2008-2018 (All Rights Reserved)
+-- =============================================================
+--  build.settings
+-- =============================================================
+-- https://docs.coronalabs.com/guide/distribution/buildSettings/index.html
+-- https://docs.coronalabs.com/guide/tvos/index.html
+-- https://docs.coronalabs.com/guide/distribution/win32Build/index.html
+-- https://docs.coronalabs.com/guide/distribution/osxBuild/index.html
+-- =============================================================
+
+local orientation = 'portrait' -- portrait, landscapeRight, ...
+
+
+settings = {
+-------------------------------------------------------------------------------
+--  Orientation Settings 
+-------------------------------------------------------------------------------
+   orientation = {
+      default     = orientation,
+      supported   = { orientation },
+   },
+
+-------------------------------------------------------------------------------
+--  Plugins
+-------------------------------------------------------------------------------
+   plugins = {
+      -- ================================   
+      -- Ads ** Ads ** Ads ** Ads ** Ads
+      -- ================================      
+      -- AppLovin: https://docs.coronalabs.com/plugin/applovin/index.html
+      --["plugin.applovin"] = { publisherId = "com.coronalabs" },
+
+      -- Appodeal: https://docs.coronalabs.com/plugin/appodeal/index.html
+      -- For more options see:  https://docs.coronalabs.com/plugin/appodeal/index.html
+      --['plugin.appodeal.beta.base'] = { publisherId = 'com.coronalabs' },
+      --[[
+      ['plugin.appodeal.beta.AdColony'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.AmazonAds'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.AppLovin'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Appnext'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Chartboost'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.FacebookAudience'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Flurry'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.GoogleAdMob'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.InMobi'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.IronSource'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Mobvista'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.MyTarget'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Ogury'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.StartApp'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Tapjoy'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.TwitterMoPub'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Unity'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Vungle'] = { publisherId = 'com.coronalabs' },
+      ['plugin.appodeal.beta.Yandex'] = { publisherId = 'com.coronalabs' },
+      --]]      
+      -- When the new plugin is out of beta, you may want to just use this instead:
+      -- As always, refer to the appodeal docs for the latest'best' settings.
+      --["plugin.appodeal"] = { publisherId = "com.coronalabs" },
+
+      -- ================================   
+      -- IAP ** IAP ** IAP ** IAP ** IAP
+      -- ================================
+      -- Google Play: https://docs.coronalabs.com/plugin/google-iap-v3/index.html
+      --["plugin.google.iap.v3"] = { publisherId = "com.coronalabs", supportedPlatforms = { android = true, },  },
+
+      -- ================================   
+      -- RATING ** RATING ** RATING 
+      -- ================================
+      -- Apple: https://marketplace.coronalabs.com/corona-plugins/review-popup
+      -- Apple: https://scotth.tech/plugin-reviewPopUp
+      -- ==
+      --["plugin.reviewPopUp"] = { publisherId = "tech.scotth", },
+
+      -- ================================   
+      -- TWITTER ** TWITTER ** TWITTER 
+      -- ================================
+      -- https://marketplace.coronalabs.com/corona-plugins/twitter
+      -- http://www.jasonschroeder.com/2015/07/15/twitter-plugin-for-corona-sdk/
+      --["plugin.twitter"] = { publisherId = "com.jasonschroeder", },
+
+      -- ================================   
+      -- SHARING ** SHARING ** SHARING 
+      -- ================================
+      -- ==
+      -- Sharing
+      -- iOS ONLY:
+      -- https://docs.coronalabs.com/plugin/CoronaProvider_native_popup_activity/index.html
+      -- https://docs.coronalabs.com/plugin/CoronaProvider_native_popup_activity/showPopup.html
+      -- ==
+      --["CoronaProvider.native.popup.activity"] = { publisherId = "com.coronalabs" },
+
+      -- ================================   
+      -- FACEBOOK ** FACEBOOK ** FACEBOOK 
+      -- ================================
+      -- https://docs.coronalabs.com/plugin/facebook-v4a/index.html
+      --["plugin.facebook.v4a"] = { publisherId = "com.coronalabs" },
+
+
+      -- ================================   
+      -- ACHIEVEMENTS & LEADERBOARDS
+      -- ================================
+      -- Apple: https://docs.coronalabs.com/plugin/gameNetwork-apple/index.html
+      --["CoronaProvider.gameNetwork.apple"] = { publisherId = "com.coronalabs" },
+      -- Google Play: https://docs.coronalabs.com/plugin/gpgs/index.html
+      --["plugin.gpgs"] = { publisherId = "com.coronalabs", supportedPlatforms = { android=true } },
+   },
+
+-------------------------------------------------------------------------------
+--  iOS Settings
+-------------------------------------------------------------------------------
+   iphone = {
+      xcassets = "Images.xcassets",
+      plist =
+      {
+         UIPrerenderedIcon                   = true,
+         UIStatusBarHidden                   = true,
+         MinimumOSVersion                    = "8.0",
+         UIApplicationExitsOnSuspend         = false, -- DO NOT CHANGE
+         UILaunchStoryboardName              = "LaunchScreen",
+
+         -- ================================   
+         -- ADS: Appodeal
+         -- ================================
+         --NSAppTransportSecurity              = { NSAllowsArbitraryLoads = true },
+         
+         
+         -- ================================   
+         -- FACEBOOK ** FACEBOOK ** FACEBOOK 
+         -- ================================
+         --[[
+         FacebookAppID = "XXXXXXXXXX",  -- Replace XXXXXXXXXX with your Facebook App ID
+         CFBundleURLTypes = {
+            { CFBundleURLSchemes = { "fbXXXXXXXXXX", } }  -- Replace XXXXXXXXXX with your Facebook App ID
+         },
+         -- Whitelist Facebook apps
+         LSApplicationQueriesSchemes =
+         {
+            "fb",  -- Needed for the facebook-v4a.isFacebookAppEnabled() API
+            "fbapi", "fbauth2", "fb-messenger-api", "fbshareextension"
+         },
+         --]]
+      },
+   },
+
+
+-------------------------------------------------------------------------------
+--  Android Settings 
+-------------------------------------------------------------------------------
+   android = {
+      --versionCode                     = "1",
+      largeHeap                       = true,
+      minSdkVersion                   = "14",
+
+      -- ================================   
+      -- ACHIEVEMENTS & LEADERBOARDS
+      -- ================================
+      --googlePlayGamesAppId = "YOUR_APPLICATION_ID",
+
+      -- ================================   
+      -- VARIOUS ** VARIOUS ** VARIOUS 
+      -- ================================
+      usesPermissions = {
+         --"android.permission.INTERNET", -- Required for: Facebook, Twitter, Ratin, Sharing, IAP, Ads
+         --"android.permission.ACCESS_NETWORK_STATE", -- Required for: Appodeal, Applovin
+         --"android.permission.WRITE_EXTERNAL_STORAGE", -- Required for: Appodeal, Applovin
+         --"android.permission.GET_ACCOUNTS", -- Optional for better ads from Appodeal
+         --"android.permission.ACCESS_COARSE_LOCATION", -- Optional for better ads from Appodeal
+         --"android.permission.ACCESS_FINE_LOCATION", -- Optional for better ads from Appodeal
+         --"com.android.vending.BILLING", -- Required for: IAP
+      },
+
+      usesFeatures = {
+      },
+   },
+
+
+-------------------------------------------------------------------------------
+--  Desktop Settings 
+-------------------------------------------------------------------------------
+--[[
+   window = {
+      defaultMode                     = "normal",
+      resizable                       = true,
+      enableCloseButton               = true,
+      suspendWhenMinimized            = true,
+      enableMaximizeButton            = true,
+      defaultViewWidth                = 540,
+      defaultViewHeight               = 960,
+      minViewWidth                    = 540,
+      minViewHeight                   = 960,
+      titleText = {
+         default  = "",
+         ["en‐us"] = " (English‐USA)",
+         ["en‐gb"] = " (English‐UK)",
+         ["en"]   = " (English)",
+         ["fr"]   = " (French)",
+         ["es"]   = " (Spanish)",
+      },
+   },
+--]]
+
+
+-------------------------------------------------------------------------------
+--  TV OS Settings 
+-------------------------------------------------------------------------------
+--[[
+   tvos = {
+      -- Apple TV app icons consist of multiple "layers" in both small and large sizes
+      icon =
+      {
+         -- A collection of 400x240 images, in order from top to bottom
+         small =
+         {
+            "Icon-tvOS-Small-4.png",
+            "Icon-tvOS-Small-3.png",
+            "Icon-tvOS-Small-2.png",
+            "Icon-tvOS-Small-1.png",
+         },
+
+         -- A collection of 1280x768 images, in order from top to bottom
+         large =
+         {
+            "Icon-tvOS-Large-4.png",
+            "Icon-tvOS-Large-3.png",
+            "Icon-tvOS-Large-2.png",
+            "Icon-tvOS-Large-1.png",
+         },
+      },
+   },
+--]]
+
+
+-------------------------------------------------------------------------------
+--  File Exclusions 
+-------------------------------------------------------------------------------
+--[[
+   excludeFiles = {
+      all      = { "*secret.txt", "*.pdf", },
+      iphone   = { "Icon-*dpi.png", "music/*.ogg", },
+      android  = { "Icon.png", "*@2x.png", "music/*.m4a", "Images.xcassets", "LaunchScreen.storyboardc" },
+      tvos     = { "Icon-*dpi.png", "music/*.ogg", "Images.xcassets", "LaunchScreen.storyboardc" },
+      osx      = { "Default*.png", "Icon*.png", "Icon*.ico", "Icon*.icns", },
+      win32    = { "Default*.png", "Icon*.png", "Icon*.ico", "Icon*.icns", "Images.xcassets", "LaunchScreen.storyboardc" },
+   },
+--]]
+}
